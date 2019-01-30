@@ -33,7 +33,7 @@ public class ZooKeeper_GetData_Api_Sync_Usage implements Watcher {
 //        zooKeeper.getChildren(path,true);
 //        String resPath3 = zooKeeper.create(path+"/test2", "value".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
 //        System.out.println(">> 创建节点："+resPath3);
-//        zooKeeper.getData(path,true, stat);
+        zooKeeper.getData(path,true, stat);
         Stat stat1 = zooKeeper.exists(path, true);
         System.out.println(stat1.getVersion());
         zooKeeper.setData(path,"aaa".getBytes(),-1);

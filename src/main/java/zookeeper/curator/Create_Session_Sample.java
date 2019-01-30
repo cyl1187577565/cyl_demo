@@ -7,10 +7,10 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.BackgroundCallback;
 import org.apache.curator.framework.api.CuratorEvent;
-import org.apache.curator.framework.recipes.cache.NodeCache;
-import org.apache.curator.framework.recipes.cache.NodeCacheListener;
+import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.data.Stat;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -32,41 +32,6 @@ public class Create_Session_Sample {
 
 
     public static void main(String[] args) throws Exception{
-        int hours, mins, secs;
-
-        String len="-26";
-        if("" == len || len.length() <= 0){
-            hours  = 0;
-            mins = 0;
-            secs = 0;
-        }else{
-            Integer lenInt = Integer.parseInt(len);
-            boolean flag = true;
-            if(lenInt <0){
-                flag = false;
-                len = String.valueOf(Math.abs(lenInt));
-            }
-            if (len.length() < 4) {
-                len = "0000" + len;
-            }
-            if (!len.substring(0, len.length() - 4).equals("")) {
-                hours = Integer.parseInt(len.substring(0, len.length() - 4));
-                if(!flag){
-                    hours = 0- hours;
-                }
-            }
-            if (!len.substring(len.length() - 4, len.length() - 2).equals("")) {
-                mins = Integer.parseInt(len.substring(len.length() - 4, len.length() - 2));
-                if(!flag){
-                    mins = 0- mins;
-                }
-            }
-            secs = Integer.parseInt(len.substring(len.length() - 2, len.length()));
-            if(!flag){
-                secs = 0 - secs;
-            }
-
-        }
 
     }
 
@@ -93,7 +58,14 @@ public class Create_Session_Sample {
 
         //读取数据
         zk.getData()
-                .forPath("/test2");;
+                .forPath("/test2");
+        Stat stat = new Stat();
+        zk.getData()
+                .storingStatIn(stat)
+                .forPath("/test1");
+
+        //修改节点数据
+
 
         //删除节点
         zk.delete()
@@ -103,7 +75,6 @@ public class Create_Session_Sample {
         zk.delete()
                 .deletingChildrenIfNeeded()
                 .forPath("/test2/test2_1");
-
 
 
         Thread.sleep(Integer.MAX_VALUE);
@@ -188,6 +159,15 @@ public class Create_Session_Sample {
                     }
                 });
 
+        final PathChildrenCache pathChildrenCache = new PathChildrenCache(zk, path,false);
+        pathChildrenCache.start();
+        pathChildrenCache.getListenable()
+                .addListener(new PathChildrenCacheListener() {
+                    @Override
+                    public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+                        System.out.println("event"+ pathChildrenCacheEvent.getType() +" data: " + pathChildrenCacheEvent.getData());
+                    }
+                });
         //创建节点
         zk.create()
                 .creatingParentsIfNeeded()

@@ -1,8 +1,10 @@
 package zookeeper.zkClient;
 
+import com.alibaba.fastjson.JSON;
 import org.I0Itec.zkclient.IZkChildListener;
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
+import org.springframework.util.StringUtils;
 
 import javax.swing.plaf.TableHeaderUI;
 import java.util.List;
@@ -53,6 +55,17 @@ public class Create_Session_Sample {
 
         //删除节点
         zk.deleteRecursive("/cyl");
+
+        //获取子节点列表
+        List<String> children = zk.getChildren("/cyl");
+        System.out.println(JSON.toJSONString(children));
+
+        //获取节点数据
+        Object cyl = zk.readData("cyl");
+
+        //检查节点是否存在
+        boolean cyl1 = zk.exists("cyl");
+        System.out.println("节点存在状态:"+ cyl1);
 
         Thread.sleep(Integer.MAX_VALUE);
     }
