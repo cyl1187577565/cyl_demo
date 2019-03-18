@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 46 去排列
  */
-public class Abs_Permute {
+public class L0019_Permute {
     public static void main(String[] args) {
         List<List<Integer>> res = permute(new int[]{1, 1, 3});
         System.out.println(JSON.toJSONString(res));

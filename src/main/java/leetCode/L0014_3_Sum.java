@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 15 三数之和
  */
-public class Aal_3_Sum {
+public class L0014_3_Sum {
     public static void main(String[] args) {
         List<List<Integer>> lists = threeSum(new int[]{3, 0, -2, -1, 1, 2});
         System.out.println(lists.toString());

@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 14 最长公共前缀
  */
-public class Aak_Longest_Common_Prefix {
+public class L0013_Longest_Common_Prefix {
 
     /**
      * 水平扫描法

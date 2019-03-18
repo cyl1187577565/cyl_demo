@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 最长子串
  */
-public class Aac_Longest_Substring_Without_Repeating_Characters {
+public class L0003_Longest_Substring_Without_Repeating_Characters {
 
     public int lengthOfLongestSubstring(String s) {
        //最长子串的长度

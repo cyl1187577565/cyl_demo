@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 19删除链表的倒数第N个数
  */
-public class Aap_Remove_Nth_Node_From_End_Of_List {
+public class L0018_Remove_Nth_Node_From_End_Of_List {
 
     class ListNode{
         int val;

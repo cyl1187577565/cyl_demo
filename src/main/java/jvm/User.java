@@ -36,29 +36,34 @@ public class User {
 
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        Class<?> aClass = Class.forName("jvm.User");
-        Constructor<?> constructor = aClass.getConstructor();
+//        Class<?> aClass = Class.forName("jvm.User");
+//        Constructor<?> constructor = aClass.getConstructor();
+//
+//        long startTime = Instant.now().toEpochMilli();
+//        for(int i = 0 ; i < 1000000; i++){
+//            Object o = aClass.newInstance();
+//        }
+//        long endTime = Instant.now().toEpochMilli();
+//        System.out.println(">> 执行时间:"+(endTime-startTime)+" ms");
+//
+//        startTime = Instant.now().toEpochMilli();
+//        for(int i = 0 ; i < 1000000; i++){
+//            Object o = constructor.newInstance();
+//        }
+//        endTime = Instant.now().toEpochMilli();
+//        System.out.println(">> 执行时间2:"+(endTime-startTime)+" ms");
+//
+//
+//        startTime = Instant.now().toEpochMilli();
+//        for(int i = 0 ; i < 1000000; i++){
+//            Object o = aClass.newInstance();
+//        }
+//        endTime = Instant.now().toEpochMilli();
+//        System.out.println(">> 执行时间3:"+(endTime-startTime)+" ms");
+        try {
+            System.out.println(1);
+        }catch (Exception e){
 
-        long startTime = Instant.now().toEpochMilli();
-        for(int i = 0 ; i < 1000000; i++){
-            Object o = aClass.newInstance();
         }
-        long endTime = Instant.now().toEpochMilli();
-        System.out.println(">> 执行时间:"+(endTime-startTime)+" ms");
-
-        startTime = Instant.now().toEpochMilli();
-        for(int i = 0 ; i < 1000000; i++){
-            Object o = constructor.newInstance();
-        }
-        endTime = Instant.now().toEpochMilli();
-        System.out.println(">> 执行时间2:"+(endTime-startTime)+" ms");
-
-
-        startTime = Instant.now().toEpochMilli();
-        for(int i = 0 ; i < 1000000; i++){
-            Object o = aClass.newInstance();
-        }
-        endTime = Instant.now().toEpochMilli();
-        System.out.println(">> 执行时间3:"+(endTime-startTime)+" ms");
     }
 }

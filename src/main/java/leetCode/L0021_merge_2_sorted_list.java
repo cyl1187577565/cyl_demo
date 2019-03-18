@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 21. 合并两个有序链表
  */
-public class Aar_merge_2_sorted_list {
+public class L0021_merge_2_sorted_list {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode cur1 = l1;
         ListNode cur2 = l2;

@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 11  装水最多的水桶
  */
-public class Aaj_Container_With_Most_Water {
+public class L0012_Container_With_Most_Water {
 
 
     public static void main(String[] args) {

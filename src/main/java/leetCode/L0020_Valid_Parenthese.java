@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 20   有效的括号
  */
-public class Aaq_Valid_Parenthese {
+public class L0020_Valid_Parenthese {
 
     public static void main(String[] args) {
         String test = "([)]";

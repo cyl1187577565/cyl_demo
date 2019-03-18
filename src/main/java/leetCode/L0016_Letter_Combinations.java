@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 17电话号码的组合
  */
-public class Aan_Letter_Combinations {
+public class L0016_Letter_Combinations {
     static String[] dict = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public static void main(String[] args) {

@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 第六题 z形变换
  */
-public class Aaf_Zig_Zag_Conversion {
+public class L0007_Zig_Zag_Conversion {
 
     public static void main(String[] args) {
         String paypalishiring = convert("PAYPALISHIRING", 2);

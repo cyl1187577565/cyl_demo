@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 8字符串转数字
  */
-public class Aag_String_To_Integer {
+public class L0008_String_To_Integer {
 
     public static void main(String[] args) {
         int i = myAtoi(" ");

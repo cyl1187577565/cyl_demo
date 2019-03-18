@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 16 最接近的三数之和
  */
-public class Aam_3_Sum_Closet {
+public class L0015_3_Sum_Closet {
 
     public static void main(String[] args) {
         int i = threeSumClosest(new int[]{0, 1, 2}, 0);

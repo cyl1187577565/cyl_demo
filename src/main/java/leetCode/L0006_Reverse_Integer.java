@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 7整数翻转
  */
-public class Aae_Reverse_Integer {
+public class L0006_Reverse_Integer {
     public static void main(String[] args) {
         int reverse = reverse(-10);
         System.out.println(reverse);

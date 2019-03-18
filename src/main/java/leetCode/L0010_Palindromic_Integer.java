@@ -3,7 +3,7 @@ package leetCode;
 /**
  * 9判断一个数是否是回文数
  */
-public class Aah_Palindromic_Integer {
+public class L0010_Palindromic_Integer {
     public static void main(String[] args) {
         boolean palindrome = isPalindrome(121);
         System.out.println(palindrome);

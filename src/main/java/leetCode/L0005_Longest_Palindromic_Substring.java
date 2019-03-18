@@ -9,7 +9,7 @@ import java.util.List;
  * 最长回文-*
  *
  */
-public class Aae_Longest_Palindromic_Substring {
+public class L0005_Longest_Palindromic_Substring {
 
 
     /**

@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 18 四数之和
  */
-public class Aao_4_Sum {
+public class L0017_4_Sum {
 
     public static void main(String[] args) {
         int[] nums = {1,0,-1,0,-2,2};

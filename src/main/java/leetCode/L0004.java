@@ -1,4 +1,4 @@
 package leetCode;
 
-public class Aad {
+public class L0004 {
 }
