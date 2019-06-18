@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.CapitalistMapper">
+  <resultMap id="BaseResultMap" type="mybatis.model.Capitalist">
+    <!--
+    @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="chinese_name" jdbcType="VARCHAR" property="chineseName" />
+    <result column="max_quota" jdbcType="DECIMAL" property="maxQuota" />
+    <result column="min_quota" jdbcType="DECIMAL" property="minQuota" />
+    <result column="period" jdbcType="VARCHAR" property="period" />
+    <result column="period_unit" jdbcType="VARCHAR" property="periodUnit" />
+    <result column="bank_list" jdbcType="VARCHAR" property="bankList" />
+    <result column="loan_time" jdbcType="VARCHAR" property="loanTime" />
+    <result column="max_money" jdbcType="DECIMAL" property="maxMoney" />
+    <result column="max_loan" jdbcType="INTEGER" property="maxLoan" />
+    <result column="priority" jdbcType="DECIMAL" property="priority" />
+    <result column="drop_withdraw_time" jdbcType="VARCHAR" property="dropWithdrawTime" />
+    <result column="withdraw_time_rule" jdbcType="VARCHAR" property="withdrawTimeRule" />
+    <result column="need_withdraw" jdbcType="TINYINT" property="needWithdraw" />
+    <result column="allot_switch" jdbcType="TINYINT" property="allotSwitch" />
+    <result column="push_switch" jdbcType="TINYINT" property="pushSwitch" />
+    <result column="query_switch" jdbcType="TINYINT" property="querySwitch" />
+    <result column="weekend_switch" jdbcType="TINYINT" property="weekendSwitch" />
+    <result column="open_account_switch" jdbcType="TINYINT" property="openAccountSwitch" />
+    <result column="withdraw_switch" jdbcType="TINYINT" property="withdrawSwitch" />
+    <result column="loan_type" jdbcType="VARCHAR" property="loanType" />
+    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+    @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+    @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+    @mbg.generated
+    -->
+    id, `name`, chinese_name, max_quota, min_quota, period, period_unit, bank_list, loan_time, 
+    max_money, max_loan, priority, drop_withdraw_time, withdraw_time_rule, need_withdraw, 
+    allot_switch, push_switch, query_switch, weekend_switch, open_account_switch, withdraw_switch, 
+    loan_type, merchant_id, update_time, create_time
+  </sql>
+  <select id="selectByExample" parameterType="mybatis.model.CapitalistExample" resultMap="BaseResultMap">
+    <!--
+    @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from capitalist
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--
+    @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from capitalist
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--
+    @mbg.generated
+    -->
+    delete from capitalist
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="mybatis.model.CapitalistExample">
+    <!--
+    @mbg.generated
+    -->
+    delete from capitalist
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatis.model.Capitalist">
+    <!--
+    @mbg.generated
+    -->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into capitalist (`name`, chinese_name, max_quota, 
+      min_quota, period, period_unit, 
+      bank_list, loan_time, max_money, 
+      max_loan, priority, drop_withdraw_time, 
+      withdraw_time_rule, need_withdraw, allot_switch, 
+      push_switch, query_switch, weekend_switch, 
+      open_account_switch, withdraw_switch, loan_type, 
+      merchant_id, update_time, create_time
+      )
+    values (#{name,jdbcType=VARCHAR}, #{chineseName,jdbcType=VARCHAR}, #{maxQuota,jdbcType=DECIMAL}, 
+      #{minQuota,jdbcType=DECIMAL}, #{period,jdbcType=VARCHAR}, #{periodUnit,jdbcType=VARCHAR}, 
+      #{bankList,jdbcType=VARCHAR}, #{loanTime,jdbcType=VARCHAR}, #{maxMoney,jdbcType=DECIMAL}, 
+      #{maxLoan,jdbcType=INTEGER}, #{priority,jdbcType=DECIMAL}, #{dropWithdrawTime,jdbcType=VARCHAR}, 
+      #{withdrawTimeRule,jdbcType=VARCHAR}, #{needWithdraw,jdbcType=TINYINT}, #{allotSwitch,jdbcType=TINYINT}, 
+      #{pushSwitch,jdbcType=TINYINT}, #{querySwitch,jdbcType=TINYINT}, #{weekendSwitch,jdbcType=TINYINT}, 
+      #{openAccountSwitch,jdbcType=TINYINT}, #{withdrawSwitch,jdbcType=TINYINT}, #{loanType,jdbcType=VARCHAR}, 
+      #{merchantId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.model.Capitalist">
+    <!--
+    @mbg.generated
+    -->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into capitalist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="chineseName != null">
+        chinese_name,
+      </if>
+      <if test="maxQuota != null">
+        max_quota,
+      </if>
+      <if test="minQuota != null">
+        min_quota,
+      </if>
+      <if test="period != null">
+        period,
+      </if>
+      <if test="periodUnit != null">
+        period_unit,
+      </if>
+      <if test="bankList != null">
+        bank_list,
+      </if>
+      <if test="loanTime != null">
+        loan_time,
+      </if>
+      <if test="maxMoney != null">
+        max_money,
+      </if>
+      <if test="maxLoan != null">
+        max_loan,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="dropWithdrawTime != null">
+        drop_withdraw_time,
+      </if>
+      <if test="withdrawTimeRule != null">
+        withdraw_time_rule,
+      </if>
+      <if test="needWithdraw != null">
+        need_withdraw,
+      </if>
+      <if test="allotSwitch != null">
+        allot_switch,
+      </if>
+      <if test="pushSwitch != null">
+        push_switch,
+      </if>
+      <if test="querySwitch != null">
+        query_switch,
+      </if>
+      <if test="weekendSwitch != null">
+        weekend_switch,
+      </if>
+      <if test="openAccountSwitch != null">
+        open_account_switch,
+      </if>
+      <if test="withdrawSwitch != null">
+        withdraw_switch,
+      </if>
+      <if test="loanType != null">
+        loan_type,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseName != null">
+        #{chineseName,jdbcType=VARCHAR},
+      </if>
+      <if test="maxQuota != null">
+        #{maxQuota,jdbcType=DECIMAL},
+      </if>
+      <if test="minQuota != null">
+        #{minQuota,jdbcType=DECIMAL},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="periodUnit != null">
+        #{periodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="bankList != null">
+        #{bankList,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTime != null">
+        #{loanTime,jdbcType=VARCHAR},
+      </if>
+      <if test="maxMoney != null">
+        #{maxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="maxLoan != null">
+        #{maxLoan,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="dropWithdrawTime != null">
+        #{dropWithdrawTime,jdbcType=VARCHAR},
+      </if>
+      <if test="withdrawTimeRule != null">
+        #{withdrawTimeRule,jdbcType=VARCHAR},
+      </if>
+      <if test="needWithdraw != null">
+        #{needWithdraw,jdbcType=TINYINT},
+      </if>
+      <if test="allotSwitch != null">
+        #{allotSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="pushSwitch != null">
+        #{pushSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="querySwitch != null">
+        #{querySwitch,jdbcType=TINYINT},
+      </if>
+      <if test="weekendSwitch != null">
+        #{weekendSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="openAccountSwitch != null">
+        #{openAccountSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="withdrawSwitch != null">
+        #{withdrawSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="loanType != null">
+        #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatis.model.CapitalistExample" resultType="java.lang.Long">
+    <!--
+    @mbg.generated
+    -->
+    select count(*) from capitalist
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update capitalist
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chineseName != null">
+        chinese_name = #{record.chineseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxQuota != null">
+        max_quota = #{record.maxQuota,jdbcType=DECIMAL},
+      </if>
+      <if test="record.minQuota != null">
+        min_quota = #{record.minQuota,jdbcType=DECIMAL},
+      </if>
+      <if test="record.period != null">
+        period = #{record.period,jdbcType=VARCHAR},
+      </if>
+      <if test="record.periodUnit != null">
+        period_unit = #{record.periodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankList != null">
+        bank_list = #{record.bankList,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanTime != null">
+        loan_time = #{record.loanTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxMoney != null">
+        max_money = #{record.maxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.maxLoan != null">
+        max_loan = #{record.maxLoan,jdbcType=INTEGER},
+      </if>
+      <if test="record.priority != null">
+        priority = #{record.priority,jdbcType=DECIMAL},
+      </if>
+      <if test="record.dropWithdrawTime != null">
+        drop_withdraw_time = #{record.dropWithdrawTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.withdrawTimeRule != null">
+        withdraw_time_rule = #{record.withdrawTimeRule,jdbcType=VARCHAR},
+      </if>
+      <if test="record.needWithdraw != null">
+        need_withdraw = #{record.needWithdraw,jdbcType=TINYINT},
+      </if>
+      <if test="record.allotSwitch != null">
+        allot_switch = #{record.allotSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="record.pushSwitch != null">
+        push_switch = #{record.pushSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="record.querySwitch != null">
+        query_switch = #{record.querySwitch,jdbcType=TINYINT},
+      </if>
+      <if test="record.weekendSwitch != null">
+        weekend_switch = #{record.weekendSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="record.openAccountSwitch != null">
+        open_account_switch = #{record.openAccountSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="record.withdrawSwitch != null">
+        withdraw_switch = #{record.withdrawSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="record.loanType != null">
+        loan_type = #{record.loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantId != null">
+        merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update capitalist
+    set id = #{record.id,jdbcType=BIGINT},
+      `name` = #{record.name,jdbcType=VARCHAR},
+      chinese_name = #{record.chineseName,jdbcType=VARCHAR},
+      max_quota = #{record.maxQuota,jdbcType=DECIMAL},
+      min_quota = #{record.minQuota,jdbcType=DECIMAL},
+      period = #{record.period,jdbcType=VARCHAR},
+      period_unit = #{record.periodUnit,jdbcType=VARCHAR},
+      bank_list = #{record.bankList,jdbcType=VARCHAR},
+      loan_time = #{record.loanTime,jdbcType=VARCHAR},
+      max_money = #{record.maxMoney,jdbcType=DECIMAL},
+      max_loan = #{record.maxLoan,jdbcType=INTEGER},
+      priority = #{record.priority,jdbcType=DECIMAL},
+      drop_withdraw_time = #{record.dropWithdrawTime,jdbcType=VARCHAR},
+      withdraw_time_rule = #{record.withdrawTimeRule,jdbcType=VARCHAR},
+      need_withdraw = #{record.needWithdraw,jdbcType=TINYINT},
+      allot_switch = #{record.allotSwitch,jdbcType=TINYINT},
+      push_switch = #{record.pushSwitch,jdbcType=TINYINT},
+      query_switch = #{record.querySwitch,jdbcType=TINYINT},
+      weekend_switch = #{record.weekendSwitch,jdbcType=TINYINT},
+      open_account_switch = #{record.openAccountSwitch,jdbcType=TINYINT},
+      withdraw_switch = #{record.withdrawSwitch,jdbcType=TINYINT},
+      loan_type = #{record.loanType,jdbcType=VARCHAR},
+      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.model.Capitalist">
+    <!--
+    @mbg.generated
+    -->
+    update capitalist
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseName != null">
+        chinese_name = #{chineseName,jdbcType=VARCHAR},
+      </if>
+      <if test="maxQuota != null">
+        max_quota = #{maxQuota,jdbcType=DECIMAL},
+      </if>
+      <if test="minQuota != null">
+        min_quota = #{minQuota,jdbcType=DECIMAL},
+      </if>
+      <if test="period != null">
+        period = #{period,jdbcType=VARCHAR},
+      </if>
+      <if test="periodUnit != null">
+        period_unit = #{periodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="bankList != null">
+        bank_list = #{bankList,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTime != null">
+        loan_time = #{loanTime,jdbcType=VARCHAR},
+      </if>
+      <if test="maxMoney != null">
+        max_money = #{maxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="maxLoan != null">
+        max_loan = #{maxLoan,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="dropWithdrawTime != null">
+        drop_withdraw_time = #{dropWithdrawTime,jdbcType=VARCHAR},
+      </if>
+      <if test="withdrawTimeRule != null">
+        withdraw_time_rule = #{withdrawTimeRule,jdbcType=VARCHAR},
+      </if>
+      <if test="needWithdraw != null">
+        need_withdraw = #{needWithdraw,jdbcType=TINYINT},
+      </if>
+      <if test="allotSwitch != null">
+        allot_switch = #{allotSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="pushSwitch != null">
+        push_switch = #{pushSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="querySwitch != null">
+        query_switch = #{querySwitch,jdbcType=TINYINT},
+      </if>
+      <if test="weekendSwitch != null">
+        weekend_switch = #{weekendSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="openAccountSwitch != null">
+        open_account_switch = #{openAccountSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="withdrawSwitch != null">
+        withdraw_switch = #{withdrawSwitch,jdbcType=TINYINT},
+      </if>
+      <if test="loanType != null">
+        loan_type = #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.model.Capitalist">
+    <!--
+    @mbg.generated
+    -->
+    update capitalist
+    set `name` = #{name,jdbcType=VARCHAR},
+      chinese_name = #{chineseName,jdbcType=VARCHAR},
+      max_quota = #{maxQuota,jdbcType=DECIMAL},
+      min_quota = #{minQuota,jdbcType=DECIMAL},
+      period = #{period,jdbcType=VARCHAR},
+      period_unit = #{periodUnit,jdbcType=VARCHAR},
+      bank_list = #{bankList,jdbcType=VARCHAR},
+      loan_time = #{loanTime,jdbcType=VARCHAR},
+      max_money = #{maxMoney,jdbcType=DECIMAL},
+      max_loan = #{maxLoan,jdbcType=INTEGER},
+      priority = #{priority,jdbcType=DECIMAL},
+      drop_withdraw_time = #{dropWithdrawTime,jdbcType=VARCHAR},
+      withdraw_time_rule = #{withdrawTimeRule,jdbcType=VARCHAR},
+      need_withdraw = #{needWithdraw,jdbcType=TINYINT},
+      allot_switch = #{allotSwitch,jdbcType=TINYINT},
+      push_switch = #{pushSwitch,jdbcType=TINYINT},
+      query_switch = #{querySwitch,jdbcType=TINYINT},
+      weekend_switch = #{weekendSwitch,jdbcType=TINYINT},
+      open_account_switch = #{openAccountSwitch,jdbcType=TINYINT},
+      withdraw_switch = #{withdrawSwitch,jdbcType=TINYINT},
+      loan_type = #{loanType,jdbcType=VARCHAR},
+      merchant_id = #{merchantId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

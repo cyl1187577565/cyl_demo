@@ -9,4 +9,5 @@ import mybatis.model.User;
  **/
 public interface UserMapper {
     User findById(Long id);
+
 }
