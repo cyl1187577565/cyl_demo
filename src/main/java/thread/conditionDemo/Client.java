@@ -1,4 +1,4 @@
-package thread.conditionTest;
+package thread.conditionDemo;
 
 public class Client {
     public static void main(String[] args) {

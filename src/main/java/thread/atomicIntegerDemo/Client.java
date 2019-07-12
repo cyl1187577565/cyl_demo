@@ -1,4 +1,4 @@
-package thread.atomicIntegerTest;
+package thread.atomicIntegerDemo;
 
 public class Client {
     public static void main(String[] args) {

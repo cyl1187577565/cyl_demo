@@ -7,7 +7,11 @@
     <groupId>www.cyl.com</groupId>
     <artifactId>cyl_demo</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${default.project.version}</version>
+
+    <properties>
+        <default.project.version>1.0.RELEASE</default.project.version>
+    </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

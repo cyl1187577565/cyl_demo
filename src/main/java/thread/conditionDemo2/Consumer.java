@@ -1,4 +1,4 @@
-package thread.conditionTest2;
+package thread.conditionDemo2;
 
 public class Consumer extends Thread {
     private MyService service;

@@ -1,4 +1,4 @@
-package thread.reentrantLockTest;
+package thread.reentrantLock;
 
 public class MyThread extends Thread {
     private MyService service;

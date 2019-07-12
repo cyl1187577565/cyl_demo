@@ -1,4 +1,4 @@
-package thread.conditionTest;
+package thread.conditionDemo;
 
 public class ThreadA extends Thread {
     private MyService service;

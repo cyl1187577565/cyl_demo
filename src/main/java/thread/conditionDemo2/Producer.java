@@ -1,4 +1,4 @@
-package thread.conditionTest2;
+package thread.conditionDemo2;
 
 public class Producer extends Thread {
     private MyService service;

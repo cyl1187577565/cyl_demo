@@ -1,5 +1,6 @@
 package thread;
 
+import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -22,5 +23,13 @@ public class LoginServlet {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        BigDecimal big1 = null;
+        BigDecimal big2 = BigDecimal.ONE;
+        BigDecimal add = big2.add(big1);
+
+        System.out.println(add.intValue());
     }
 }
