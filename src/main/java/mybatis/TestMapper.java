@@ -1,7 +1,9 @@
 package mybatis;
 
 import com.alibaba.fastjson.JSON;
+import mybatis.mapper.CapitalistMapper;
 import mybatis.mapper.UserMapper;
+import mybatis.model.Capitalist;
 import mybatis.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -9,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @ClassName TestMapper
@@ -24,8 +27,8 @@ public class TestMapper {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         //获取sqlSession
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = mapper.findById(21L);
-        System.out.println(JSON.toJSONString(user));
+        CapitalistMapper mapper = sqlSession.getMapper(CapitalistMapper.class);
+        List<Capitalist> capitalists = mapper.selectByExample(null);
+        System.out.println(capitalists);
     }
 }

@@ -23,6 +23,8 @@ public class ReflectTest {
         Method setBrand = clazz.getDeclaredMethod("setBrand", String.class);
         setBrand.invoke(car, "bmw");
         Method setColor = clazz.getDeclaredMethod("setColor", String.class);
+        Class<?> declaringClass = setColor.getDeclaringClass();
+        System.out.println(declaringClass);
         setColor.invoke(car, "red");
         Method setMaxSpeed = clazz.getDeclaredMethod("setMaxSpeed", int.class);
         setMaxSpeed.invoke(car, 100);
