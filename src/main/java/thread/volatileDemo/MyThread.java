@@ -1,4 +1,4 @@
-package thread.volatileTest;
+package thread.volatileDemo;
 
 public class MyThread extends Thread {
     volatile public static int count;

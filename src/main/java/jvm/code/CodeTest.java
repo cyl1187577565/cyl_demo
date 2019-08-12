@@ -1,5 +1,7 @@
 package jvm.code;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 整数的存储，在计算机中是以补码的方式存在的，
  * 以补码存在的好处为 1 可以统一0的表示，2可以简化整数的加减法计算（统一做加法）
@@ -11,6 +13,8 @@ public class CodeTest {
 
 
     public static void main(String[] args) {
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
         showEveryBit();
         System.out.println();
         System.out.println(Integer.valueOf(0x8));
