@@ -1,5 +1,9 @@
 package jvm.code;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * 整数的存储，在计算机中是以补码的方式存在的，
  * 以补码存在的好处为 1 可以统一0的表示，2可以简化整数的加减法计算（统一做加法）
@@ -16,6 +20,16 @@ public class CodeTest {
         System.out.println(Integer.valueOf(0x8));
         System.out.println(1 & 3);
         System.out.println(1|6);
+
+        HashMap<String,String> map = new HashMap<>();
+        map.put("key","value");
+        System.out.println(26&31);
+        System.out.println(31&16);
+        map.get("key");
+
+        ConcurrentHashMap<String,String> map1 = new ConcurrentHashMap<>();
+        map1.put("key", "value");
+
     }
 
     /**
