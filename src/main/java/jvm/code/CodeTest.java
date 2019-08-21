@@ -1,5 +1,7 @@
 package jvm.code;
 
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -20,6 +22,16 @@ public class CodeTest {
         System.out.println(Integer.valueOf(0x8));
         System.out.println(1 & 3);
         System.out.println(1|6);
+
+        HashMap<String,String> map = new HashMap<>();
+        map.put("key","value");
+        System.out.println(26&31);
+        System.out.println(31&16);
+        map.get("key");
+
+        ConcurrentHashMap<String,String> map1 = new ConcurrentHashMap<>();
+        map1.put("key", "value");
+
     }
 
     /**
