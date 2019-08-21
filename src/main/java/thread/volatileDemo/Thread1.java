@@ -1,4 +1,4 @@
-package thread.volatileTest;
+package thread.volatileDemo;
 
 public class Thread1 implements Runnable {
     private Object lock;

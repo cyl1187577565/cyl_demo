@@ -1,4 +1,4 @@
-package dataStruture;
+package dataStruture.recursive;
 
 /**
  * 斐波那契

@@ -1,8 +1,8 @@
 package jvm.code;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 整数的存储，在计算机中是以补码的方式存在的，
@@ -15,6 +15,8 @@ public class CodeTest {
 
 
     public static void main(String[] args) {
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
         showEveryBit();
         System.out.println();
         System.out.println(Integer.valueOf(0x8));

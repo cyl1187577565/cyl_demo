@@ -1,4 +1,4 @@
-package thread.volatileTest;
+package thread.volatileDemo;
 
 import java.util.concurrent.TimeUnit;
 

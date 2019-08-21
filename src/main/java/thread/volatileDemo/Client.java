@@ -1,6 +1,4 @@
-package thread.volatileTest;
-
-import java.io.PrintStream;
+package thread.volatileDemo;
 
 public class Client {
     public static void main(String[] args) {
