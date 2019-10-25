@@ -52,7 +52,7 @@ public class QuickSort implements ISort {
                 while (a[i] <= pivot && i < right ){
                     i++;
                 }
-                while (a[j] >= pivot  ){
+                while (a[j] >= pivot && j > left ){
                     j--;
                 }
                 if(i < j ){
